@@ -1,0 +1,128 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #1a2a6c, #464398, #a49bdb); /* Degradado oscuro */
+  color: #eee; /* Texto claro para contraste */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+  background-color: rgba(30, 30, 30, 0.8); /* Fondo oscuro semi-transparente */
+  color: #eee;
+  padding: 1rem;
+  text-align: center;
+  flex: 0 0 5%;
+}
+
+/* Contenido principal */
+main {
+  display: flex;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+section {
+  background-color: rgba(50, 50, 50, 0.8); /* Fondo oscuro semi-transparente */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  padding: 20px;
+  margin: 10px;
+  flex: 1;
+}
+
+/* Área de texto */
+textarea {
+  width: 100%;
+  height: calc(50vh - 40px);
+  padding: 10px;
+  border: 1px solid #666; /* Borde más oscuro */
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+  background-color: #ffffff5a; /* Fondo oscuro */
+  color: #000000;
+}
+
+/* Consola de salida */
+pre {
+  background-color: #ffffff5a; /* Fondo oscuro */
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  height: calc(50vh - 40px);
+  font-family: 'Courier New', monospace;
+  color: #000000;
+}
+
+/* Botones */
+button {
+  background-color: #673ab7; /* Morado */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra más oscura */
+}
+
+button:hover {
+  background-color: #512da8; /* Morado más oscuro */
+}
+
+/* Contenedor de botones */
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* Contenedor específico para errores */
+.error-console {
+  background-color: rgba(255, 0, 38, 0.475); /* Fondo rojo claro con transparencia */
+  color: #c62828; /* Texto rojo oscuro */
+  padding: 1px;
+  border: 1px solid #ff0000; /* Borde rojo claro */
+  border-radius: 4px; /* Bordes redondeados */
+  margin: 1px 0;
+  overflow-y: auto;
+  max-height: 100px; /* Limitar la altura */
+  font-family: 'Courier New', monospace; /* Tipografía monoespaciada */
+}
+
+/* Estilo de cada error individual */
+.error-console .error-item {
+  margin-bottom: 10px; /* Espacio entre errores */
+}
+
+/* Separador entre errores */
+.error-console .error-item hr {
+  border: none;
+  border-top: 1px dashed #010000; /* Línea punteada roja */
+  margin: 5px 0;
+}
+
+/* Texto envuelto y ajustado */
+.error-console pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(30, 30, 30, 0.8); /* Fondo oscuro semi-transparente */
+  color: #eee;
+  padding: 1rem;
+  text-align: center;
+  flex: 0 0 5%;
+}
+
