@@ -7,7 +7,6 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"runtime"
 	"strings"
 )
 
@@ -149,44 +148,14 @@ func ReadObject(file *os.File, data interface{}, position int64) error {
 }
 
 func RutaCorrecta(path string) string {
-
 	path = strings.Trim(path, `"`)
 
-	// TODO: validación que hacer agregar el "/home" para estos casos:
-	//	fdisk -size=1 -type=L -unit=M -fit=BF-path="/mis
-	//	discos/Disco3.mia"-name="Particion3"
-
-	// Detectar si estamos en macOS
-	isMacOS := runtime.GOOS == "darwin"
-
-	// Variable para guardar la ruta procesada
-	var processedPath string
-
-	/*
-
-		El proyecto está diseñado para ejecutarse principalmente
-		en Linux donde la ruta /home es completamente accesible,
-
-	*/
-	if isMacOS && strings.HasPrefix(path, "/home") {
-		// En macOS, redirigir las rutas /home a una carpeta en el directorio del usuario
-		homeDir, err := os.UserHomeDir()
-		if err != nil {
-			fmt.Errorf(" \n --> MKDISK (CrearDisco), ERROR: al obtener el directorio del usuario: ", err)
-			return path
-		}
-
-		// Reemplazar /home con el directorio simulado en la carpeta del usuario
-		// Por ejemplo, /home/user/archivo.mia se convierte en /Users/gio/home/user/archivo.mia
-		relPath := strings.TrimPrefix(path, "/home")
-		processedPath = filepath.Join(homeDir, "home", relPath)
-
-	} else {
-		// En Linux o si la ruta no comienza con /home, usar la ruta original
-		processedPath = path
+	if strings.HasPrefix(path, "/home") {
+		// Cambia el prefijo /home por ./home (ruta relativa al proyecto)
+		return "." + path
 	}
 
-	return processedPath
+	return path
 }
 
 /*
